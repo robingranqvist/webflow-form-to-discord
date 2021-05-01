@@ -52,7 +52,7 @@ app.post('/hook', (req, res) => {
     client.channels.cache.get(d_channel).send(form_data)
     .catch((e) => console.log(e));
 
-    res.connection.end();
+    return res.status(200).json({ data: 'Form submitted successfully' });
 });
 
 app.listen(PORT, () => { console.log("We're up and running bois") });
