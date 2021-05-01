@@ -27,7 +27,7 @@ app.use(express.json())
  * The /hook route. Processing the Webflow form data
  * and sending it to a specified Discord channel.
  */
-app.post('/hook', (req, res) => {
+app.post('/form', (req, res) => {
     // Processing the data sent through the form
     let form_name = req.body.data.name;
     let form_email = req.body.data.email;
@@ -43,14 +43,33 @@ app.post('/hook', (req, res) => {
 	.setThumbnail('https://cdn.theorg.com/49515591-1fdb-45b7-8816-b490414a41ad_thumb.png')
 	.addField('Email', form_email, true)
 	.setTimestamp()
-	.setFooter('Sent through successfully bois');
+	.setFooter('Sent through successfully!');
 
     // Sending the message to the channel
     client.channels.cache.get(d_channel).send(form_data)
     .catch((e) => console.log(e));
-    
+
     res.set("Connection", "close");
     res.status(200).json({ data: 'Form submitted successfully' });
+});
+
+app.post('/publish', (req, res) => {
+    let site = req.body.data.site;
+    let publishTime = req.body.data.publishTime;
+
+    const form_data = new Discord.MessageEmbed()
+    .setColor('#0099ff')
+	.setTitle(`${site} was published at ${publishTime}`)
+    .setThumbnail('https://cdn.theorg.com/49515591-1fdb-45b7-8816-b490414a41ad_thumb.png')
+    .setTimestamp()
+    .setFooter('Good work!');
+
+    // Sending the message to the channel
+    client.channels.cache.get(d_channel).send(form_data)
+    .catch((e) => console.log(e));
+
+    res.set("Connection", "close");
+    res.status(200).json({ data: 'Hook submitted successfully' });
 });
 
 app.listen(PORT, () => { console.log("We're up and running bois") });
