@@ -55,8 +55,8 @@ app.post('/form', (req, res) => {
 
 app.post('/publish', (req, res) => {
     console.log(req)
-    let site = req.body.data.site;
-    let publishTime = req.body.data.publishTime;
+    let site = req.body.site;
+    let publishTime = req.body.publishTime;
 
     const form_data = new Discord.MessageEmbed()
     .setColor('#0099ff')
