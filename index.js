@@ -45,14 +45,12 @@ app.post('/hook', (req, res) => {
 	.setTimestamp()
 	.setFooter('Sent through successfully bois');
 
-    console.log(form_name, form_email, form_message)
-    console.log(req.body)
-
     // Sending the message to the channel
     client.channels.cache.get(d_channel).send(form_data)
     .catch((e) => console.log(e));
 
-    return res.status(200).json({ data: 'Form submitted successfully' });
+    res.status(200).json({ data: 'Form submitted successfully' });
+    res.set("Connection", "close");
 });
 
 app.listen(PORT, () => { console.log("We're up and running bois") });
