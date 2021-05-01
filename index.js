@@ -29,9 +29,9 @@ app.use(express.json())
  */
 app.post('/hook', (req, res) => {
     // Processing the data sent through the form
-    const form_name = req.body.data.name;
-    const form_email = req.body.data.email;
-    const form_message = req.body.data.message;
+    let form_name = req.body.data.name;
+    let form_email = req.body.data.email;
+    let form_message = req.body.data.message;
 
     // Creating a formatted Discord message
     const form_data = new Discord.MessageEmbed()
@@ -46,10 +46,13 @@ app.post('/hook', (req, res) => {
 	.setFooter('Sent through successfully bois');
 
     console.log(form_name, form_email, form_message)
+    console.log(req.body)
 
     // Sending the message to the channel
     client.channels.cache.get(d_channel).send(form_data)
     .catch((e) => console.log(e));
+
+    res.connection.end();
 });
 
 app.listen(PORT, () => { console.log("We're up and running bois") });
