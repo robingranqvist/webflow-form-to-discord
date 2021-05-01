@@ -45,6 +45,8 @@ app.post('/hook', (req, res) => {
 	.setTimestamp()
 	.setFooter('Sent through successfully bois');
 
+    console.log(form_name, form_email, form_message)
+
     // Sending the message to the channel
     client.channels.cache.get(d_channel).send(form_data)
     .catch((e) => console.log(e));
