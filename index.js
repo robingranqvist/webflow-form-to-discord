@@ -2,6 +2,7 @@
 const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
+require('dotenv').config()
 
 // Discord
 const Discord = require('discord.js');
@@ -15,8 +16,6 @@ client.login(d_token);
  * alive and well.
  */
 client.on("ready", () => {
-    let channel = client.channels.cache.get(channel);
-
     client.user
         .setPresence({ activity: { name: "🥳" }, status: "online" })
         .catch((e) => console.log(e));
