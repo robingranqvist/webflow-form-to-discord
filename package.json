@@ -1,0 +1,15 @@
+{
+  "name": "webflow-form-to-discord",
+  "version": "1.0.0",
+  "description": "Sending Webflow form submission to a discord server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Robin Granqvist",
+  "license": "ISC",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "express": "^4.17.1"
+  }
+}
