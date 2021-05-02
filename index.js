@@ -53,6 +53,10 @@ app.post('/form', (req, res) => {
     res.status(200).json({ data: 'Form submitted successfully' });
 });
 
+/**
+ * The /publish route. Sending a Discord message
+ * on each Webflow publish webhook.
+ */
 app.post('/publish', (req, res) => {
     console.log(req)
     let site = req.body.site;
