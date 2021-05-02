@@ -9,7 +9,7 @@ const Discord = require('discord.js');
 const d_token = process.env.TOKEN;
 const d_channel = process.env.CHANNEL;
 const client = new Discord.Client();
-client.login(d_token);
+client.login(d_token); 
 
 /**
  * Keeping the bot
