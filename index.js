@@ -32,8 +32,6 @@ app.post('/form', (req, res) => {
     let form_email = req.body.data.email;
     let form_message = req.body.data.message;
 
-    console.log(req)
-
     // Creating a formatted Discord message
     const form_data = new Discord.MessageEmbed()
 	.setColor('#0099ff')
