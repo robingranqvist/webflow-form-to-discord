@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const PORT = process.env.PORT || 3000;
 require('dotenv').config()
+const cors = require('cors');
 
 // Discord
 const Discord = require('discord.js');
@@ -21,6 +22,9 @@ client.on("ready", () => {
 });
 
 app.use(express.json())
+app.use(cors({
+    origin: 'https://webflow-to-discord-form.webflow.io'
+}));
 
 /**
  * The /hook route. Processing the Webflow form data
