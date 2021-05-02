@@ -32,7 +32,8 @@ app.post('/form', (req, res) => {
     let form_email = req.body.data.email;
     let form_message = req.body.data.message;
 
-    console.log(req.get('Referrer'))
+    let host = req.get('host');
+    console.log(host)
 
     // Creating a formatted Discord message
     const form_data = new Discord.MessageEmbed()
