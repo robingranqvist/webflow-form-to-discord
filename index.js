@@ -12,8 +12,7 @@ const client = new Discord.Client();
 client.login(d_token); 
 
 /**
- * Keeping the bot
- * alive and well.
+ * Setting the bots online activity.
  */
 client.on("ready", () => {
     client.user
