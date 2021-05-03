@@ -1,3 +1,6 @@
-# Sending Webflow data to a Discord channel
-A simple express server, just waiting for a Webflow site to send out
-its webhooks, process the data and send it to a Discord server through a bot.
+# Sending Webflow form data to a Discord channel
+A simple Express.js server processing form data sent from 
+Webflow through its integrated form webhook and sends it 
+to a Discord channel through Discord.js.
+
+![alt text](discord-screen.png)
